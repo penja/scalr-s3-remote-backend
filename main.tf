@@ -30,6 +30,7 @@ resource "aws_s3_bucket" "terraform_state" {
   versioning {
     enabled = true
   }
+  force_destroy=true
 }
 
 # Create a DynamoDB table for state locking
