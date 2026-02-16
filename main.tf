@@ -75,8 +75,9 @@ terraform {
 }
 
 output "remote_config" {
+    count = 1000
     value = {
-        bucket = aws_s3_bucket.terraform_state.bucket
+        bucket = aws_s3_bucket.terraform_state[count.index].bucket
         key    = "global/${local.bucket_name}/terraform.tfstate"
         region = var.region
         encrypt = true
