@@ -24,7 +24,7 @@ provider "aws" {
 
 # Create the S3 bucket to store the Terraform state file
 resource "aws_s3_bucket" "terraform_state" {
-  сount = 1000
+  count = 1000
   bucket = "${local.bucket_name}-${count.index}"
   acl    = "private"
 
@@ -36,7 +36,8 @@ resource "aws_s3_bucket" "terraform_state" {
 
 # Create a DynamoDB table for state locking
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "${var.bucket_name}-locks"
+  count = 1000
+  name         = "${local.bucket_name}-${count.index}-locks"
   billing_mode = "PAY_PER_REQUEST" # This uses on-demand pricing for DynamoDB
 
   attribute {
