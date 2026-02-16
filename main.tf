@@ -73,4 +73,4 @@ terraform {
     dynamodb_table = "terraform-locks"      # Name of the DynamoDB table for state locking
   }
 }
-}
+
