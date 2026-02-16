@@ -24,7 +24,8 @@ provider "aws" {
 
 # Create the S3 bucket to store the Terraform state file
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = local.bucket_name
+  сount = 1000
+  bucket = "${local.bucket_name}-${count.index}"
   acl    = "private"
 
   versioning {
