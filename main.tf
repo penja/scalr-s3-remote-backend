@@ -81,6 +81,6 @@ output "remote_config" {
         key    = "global/${local.bucket_name}/terraform.tfstate"
         region = var.region
         encrypt = true
-        dynamodb_table = aws_dynamodb_table.terraform_locks.name
+        dynamodb_table = aws_dynamodb_table.terraform_locks[count.index].name
     }
 }
