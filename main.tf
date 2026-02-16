@@ -73,14 +73,4 @@ terraform {
     dynamodb_table = "terraform-locks"      # Name of the DynamoDB table for state locking
   }
 }
-
-output "remote_config" {
-    count = 1000
-    value = {
-        bucket = aws_s3_bucket.terraform_state[count.index].bucket
-        key    = "global/${local.bucket_name}/terraform.tfstate"
-        region = var.region
-        encrypt = true
-        dynamodb_table = aws_dynamodb_table.terraform_locks[count.index].name
-    }
 }
